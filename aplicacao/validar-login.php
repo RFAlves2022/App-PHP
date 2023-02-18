@@ -1,4 +1,5 @@
 <?php
+
 $usuario = $_POST["email"];
 $senha = $_POST["senha"];
 
@@ -14,4 +15,5 @@ if($dados->num_rows >0){
 }else{
     header("location:login.php?msg=invalido");
 }
+
 ?>
