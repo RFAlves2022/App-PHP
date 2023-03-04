@@ -1,13 +1,12 @@
 <?php
 $pasta = "img/";
-$nomeArquivo = $_FILES["arquivo"]["name"];
-$extensao = explode(".",$nomeArquivo);
-$nomeNovo = round(microtime(true)) . end($extensao);
-//echo "<pre>";
-//print_r($_FILES["arquivo"]);
+// Montar o novo nome do arquivo !!!!!!
+$nomeDoArquivo = $_FILES["arquivo"]["name"]; // pega o nome antigo
+$partes = explode(".",$nomeDoArquivo); // quebra o nome antigo em array para poder pegar apenas a extensão
+$nomeNovo =  round(microtime(true)) . ".". end($partes); //pega um número MICROTIME, arredonda (ROUND) e concatena com o último valor do array aonde está a extensão
+// Montar o novo nome do arquivo !!!!!!
 
-exit();
-
-move_uploaded_file($_FILES["arquivo"]["tmp_name"],$pasta . $nomeArquivo);
+move_uploaded_file($_FILES["arquivo"]["tmp_name"],$pasta . $nomeNovo);
 
 ?>
+<img src="<?php echo $pasta . $nomeDoArquivo; ?>">
