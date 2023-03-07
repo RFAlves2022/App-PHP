@@ -4,6 +4,9 @@ $usuario = $_POST["email"];
 $senha = $_POST["senha"];
 
 include_once "conexao.php";
+
+$senha = md5($senha);
+
 $sql = "SELECT * FROM tb_users WHERE email = '$usuario' and senha = '$senha'";
 
 $dados = mysqli_query($conexao, $sql);

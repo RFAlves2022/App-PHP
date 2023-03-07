@@ -5,11 +5,6 @@ include_once "sessao-login.php";
 
 ?>
 
-<!--
-<a href="logout.php">
-   <?php echo $_SESSION["usuario"]; ?> [ Sair ]
-</a>
--->
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -63,3 +58,40 @@ include_once "sessao-login.php";
     <!-- Container wrapper -->
 </nav>
 <!-- Navbar -->
+
+<main class="justify-content-center">
+
+    <div class="container ml-3">
+        <h1 class="d-flex justify-content-center mt-3">Painel</h1>
+
+        <table class="table table-bordered mt-3">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#ID</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Profissão</th>
+                    <th scope="col">E-mail</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                include_once "conexao.php";
+
+                $sql = "SELECT * FROM tb_users";
+                $resultado = $conexao->query($sql);
+
+                if ($resultado->num_rows > 0) {
+                    // Saída dos dados de cada linha
+                    while ($row = $resultado->fetch_assoc()) {
+                        echo "<tr><td>" . $row["id"] . "</td><td>" . $row["nome"] . "</td><td>" . $row["profissao"] . "</td><td>" . $row["email"] . "</td></tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='3'>0 resultados</td></tr>";
+                }
+                $conexao->close();
+                ?>
+            </tbody>
+        </table>
+    </div>
+
+</main>

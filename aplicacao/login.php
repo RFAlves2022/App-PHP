@@ -10,9 +10,10 @@
 
                             <div class="mb-md-5 mt-md-4 pb-5">
                                 <form method="post" action="validar-login.php">
-                                    <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+                                    <h2 class="fw-bold mb-2 text-uppercase">Área restrita</h2>
                                     <br>
-
+                                    <p>Preencha os campos para entrar</p>
+                                    <br>
                                     <div class="form-outline form-white mb-4">
                                         <label class="form-label" for="typeEmailX">E-mail</label>
                                         <input type="email" name="email" id="typeEmailX" class="form-control form-control-lg" />

@@ -48,9 +48,49 @@
         <input type="file" name="foto-perfil">
         <br>
 
-        <label for="foto-fundo">Foto de fundo</label><br>
-        <input type="text" name="foto-fundo">
-        <br>
+        <div class="row mt-1">
+            <div class="col-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="fundo" id="fundo1" value="img/fundo01.jpg"
+                        checked>
+                    <label class="form-check-label" for="fundo1">
+                        Imagem de fundo 01
+                        <img src="img/fundo01.jpg" class="img-fluid">
+                    </label>
+                </div>
+            </div>
+
+            <div class="col-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="fundo" id="fundo2" value="img/fundo02.jpg">
+                    <label class="form-check-label" for="fundo2">
+                        Imagem de fundo 02
+                        <img src="img/fundo02.jpg" class="img-fluid">
+                    </label>
+                </div>
+            </div>
+
+            <div class="col-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="fundo" id="fundo3" value="img/fundo03.jpg">
+                    <label class="form-check-label" for="fundo3">
+                        Imagem de fundo 03
+                        <img src="img/fundo03.jpg" class="img-fluid">
+                    </label>
+                </div>
+            </div>
+
+            <div class="col-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="fundo" id="fundo4" value="img/fundo04.jpg">
+                    <label class="form-check-label" for="fundo4">
+                        Imagem de fundo 04
+                        <img src="img/fundo04.jpg" class="img-fluid">
+                    </label>
+                </div>
+            </div>
+
+        </div>
 
         <button type="submit">Salvar</button>
     </form>

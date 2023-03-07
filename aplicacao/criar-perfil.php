@@ -11,7 +11,7 @@ $facebook = $_POST["facebook"];
 $linkedin = $_POST["linkedin"];
 $youtube = $_POST["youtube"];
 $senha = $_POST["senha"];
-$fotoFundo = $_POST["foto-fundo"];
+$fotoFundo = $_POST["fundo"];
 
 
 //arquivo foto de perfil
@@ -21,13 +21,14 @@ $partesPerfil = explode(".", $fotoPerfil);
 $nomeNovoPerfil = round(microtime(true)) . "." . end($partesPerfil);
 move_uploaded_file($_FILES["foto-perfil"]["tmp_name"], $pasta . $nomeNovoPerfil);
 
-//inserir sql:
-$sql = "INSERT INTO tb_users (nome,email,profissao,descricao,instagram,twitter,facebook,linkedin,youtube,senha,foto_perfil,foto_fundo) VALUES('$nome','$email','$email','$descricao','$instagram','$twitter','$facebook','$linkedin','$youtube','$senha','$nomeNovoPerfil','$fotoFundo')";
+$senha = md5($senha);
 
-if(mysqli_query($conexao,$sql) === true){
-    header("location:login.php");
-}else{
-    header("location:perfil-novo.php");
-}
+//inserir sql:
+$sql = "INSERT INTO tb_users (nome,email,profissao,descricao,instagram,twitter,facebook,linkedin,youtube,senha,foto_perfil,foto_fundo) 
+VALUES('$nome','$email','$profissao','$descricao','$instagram','$twitter','$facebook','$linkedin','$youtube','$senha','$nomeNovoPerfil','$fotoFundo')";
+
+mysqli_query($conexao,$sql);
+header("location:perfil-novo.php");
+
 
 ?>
